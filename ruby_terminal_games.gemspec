@@ -12,6 +12,8 @@ Gem::Specification.new do |s|
   s.files       = Dir['lib/**/*', 'bin/*', 'README.md']
   s.homepage    = 'https://github.com/alvesdan/ruby_terminal_games'
   s.license     = 'MIT'
+  s.bindir      = 'bin'
+  s.executables = ['ruby_terminal_games']
 
   s.add_dependency 'curses'
   s.add_dependency 'colorize'
