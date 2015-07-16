@@ -1,5 +1,5 @@
 module RubyTerminalGames
-  module SnakeGame
+  module Snake
     class Snake
       attr_reader :state, :width, :height
       def initialize(width:, height:)

@@ -27,7 +27,7 @@ end
 
 game = case arg.downcase
 when /snake/
-  RubyTerminalGames::SnakeGame::Game.new
+  RubyTerminalGames::Snake::Game.new
 end
 
 if game

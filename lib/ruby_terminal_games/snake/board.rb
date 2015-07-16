@@ -1,5 +1,5 @@
 module RubyTerminalGames
-  module SnakeGame
+  module Snake
     class Board < RubyTerminalGames::Board
       def initialize(width: nil, height: nil)
         super

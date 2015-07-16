@@ -12,6 +12,6 @@ end
 require_relative 'ruby_terminal_games/game'
 require_relative 'ruby_terminal_games/board'
 require_relative 'ruby_terminal_games/keyboard'
-require_relative 'ruby_terminal_games/snake_game'
+require_relative 'ruby_terminal_games/snake'
 
 KEYBOARD = RubyTerminalGames::Keyboard.new

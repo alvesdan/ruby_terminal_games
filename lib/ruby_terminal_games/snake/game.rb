@@ -3,7 +3,7 @@ require_relative 'snake'
 require_relative 'apple'
 
 module RubyTerminalGames
-  module SnakeGame
+  module Snake
     class Game < RubyTerminalGames::Game
       attr_reader :board, :snake, :direction, :apple,
         :points, :speed, :counter
