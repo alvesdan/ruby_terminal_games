@@ -1,9 +1,10 @@
 module RubyTerminalGames
   module SnakeGame
     class Snake
-      attr_reader :state, :board
-      def initialize(board)
-        @board = board
+      attr_reader :state, :width, :height
+      def initialize(width:, height:)
+        @width = width
+        @height = height
         @state = [
           [0, [2, 2]],
           [1, [2, 3]],
@@ -64,11 +65,11 @@ module RubyTerminalGames
       end
 
       def across_rows_limit?(row)
-        (row < 2 || row > board.height - 1)
+        (row < 2 || row > height - 1)
       end
 
       def across_cols_limit?(col)
-        (col < 2 || col > board.width - 1)
+        (col < 2 || col > width - 1)
       end
 
       def used_positions

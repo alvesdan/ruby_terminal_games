@@ -1,3 +1,7 @@
+require 'io/console'
+require 'curses'
+require 'colorize'
+
 module RubyTerminalGames
   UP = 0
   RIGHT = 1
@@ -5,4 +9,8 @@ module RubyTerminalGames
   LEFT = 3
 end
 
+require_relative 'ruby_terminal_games/board'
+require_relative 'ruby_terminal_games/keyboard'
 require_relative 'ruby_terminal_games/snake_game'
+
+KEYBOARD = RubyTerminalGames::Keyboard.new

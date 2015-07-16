@@ -11,8 +11,17 @@ module RubyTerminalGames
       def initialize
         @direction = RIGHT
         @board = Board.new
-        @apple = Apple.new(board)
-        @snake = Snake.new(board)
+
+        @apple = Apple.new(
+          width: @board.width,
+          height: @board.height
+        )
+
+        @snake = Snake.new(
+          width: @board.width,
+          height: @board.height
+        )
+
         @points = 0
         @speed = 0
         @counter = 0
@@ -21,31 +30,29 @@ module RubyTerminalGames
       def play!
         @playing = true
 
-        keyboard = Thread.new {
-          loop do
-            dir = board.read_command
-            next unless direction_allowed?(dir)
-            @direction = dir
-          end
-        }
+        KEYBOARD.capture(detect_direction: true) do |key|
+          exit if key =~ /q/i
+          next unless direction_allowed?(key)
+          @direction = key
+        end
 
         while @playing
-          if snake.eat?(apple)
-            snake.grow!(direction)
-            add_points!
-            increase_speed!
-          end
-
+          eat?
           snake.move!(direction)
           snake.died? and @playing = false
           game_interval!
           board.print_world!(self)
         end
-
-        Thread.kill(keyboard)
       end
 
       private
+
+      def eat?
+        return unless snake.eat?(apple)
+        snake.grow!(direction)
+        add_points!
+        increase_speed!
+      end
 
       def add_points!
         @points += (1 * @counter += 1)
