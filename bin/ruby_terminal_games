@@ -1,3 +1,44 @@
 #!/usr/bin/env ruby
 require_relative '../lib/ruby_terminal_games'
-RubyTerminalGames::SnakeGame::Game.new.play!
+command = ARGV.shift
+arg = ARGV.shift
+
+help = <<-EOT
+Usage: ruby_terminal_games COMMAND [ARGS]
+
+The most common commands are:
+  list    Get the list of games
+  play    Have fun!
+  about   What is the game about?
+EOT
+
+if command =~ /list/
+  puts <<-EOT
+Games:
+- Snake (play snake)
+  EOT
+  exit
+end
+
+unless command && arg
+  puts help
+  exit
+end
+
+game = case arg.downcase
+when /snake/
+  RubyTerminalGames::SnakeGame::Game.new
+end
+
+if game
+  method = case command.downcase
+  when /play/
+    game.play!
+  when /about/
+    puts game.about
+  else
+    puts help
+  end
+else
+  puts help
+end

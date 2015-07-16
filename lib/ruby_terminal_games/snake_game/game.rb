@@ -4,7 +4,7 @@ require_relative 'apple'
 
 module RubyTerminalGames
   module SnakeGame
-    class Game
+    class Game < RubyTerminalGames::Game
       attr_reader :board, :snake, :direction, :apple,
         :points, :speed, :counter
 
@@ -43,6 +43,13 @@ module RubyTerminalGames
           game_interval!
           board.print_world!(self)
         end
+      end
+
+      def about
+        [
+          "Remember the good old times. Use the keyboard ",
+          "arrows to control the snake."
+        ].join
       end
 
       private
