@@ -15,6 +15,7 @@ module RubyTerminalGames
           command = direction(key) || key
           command = key unless detect_direction
           block.call(command)
+          sleep(0.15)
         end
       end
     end
