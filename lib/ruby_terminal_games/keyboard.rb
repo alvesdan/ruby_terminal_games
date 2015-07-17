@@ -9,7 +9,7 @@ module RubyTerminalGames
       Curses.cbreak
       Curses.raw
 
-      Thread.new do
+      @capture_thread = Thread.new do
         loop do
           key = Curses.getch
           command = direction(key) || key
@@ -18,6 +18,15 @@ module RubyTerminalGames
           sleep(0.15)
         end
       end
+    end
+
+    def stop_capture
+      Thread.kill(@capture_thread)
+      Curses.echo
+      Curses.stdscr.keypad(false)
+      Curses.curs_set(1)
+      Curses.crmode
+      Curses.noraw
     end
 
     private

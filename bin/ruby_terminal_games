@@ -28,10 +28,12 @@ end
 game = case arg.downcase
 when /snake/
   RubyTerminalGames::Snake::Game.new
+when /hangman/
+  RubyTerminalGames::Hangman::Game.new
 end
 
 if game
-  method = case command.downcase
+  case command.downcase
   when /play/
     game.play!
   when /about/
