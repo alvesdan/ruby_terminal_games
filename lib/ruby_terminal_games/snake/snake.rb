@@ -32,7 +32,7 @@ module RubyTerminalGames
       def died?
         _, position = state.last
         row, col = position
-        across_rows_limit?(row) || across_cols_limit?(col)
+        across_rows_limit?(row) || across_cols_limit?(col) || collision_with_self?
       end
 
       def eat?(apple)
@@ -74,6 +74,10 @@ module RubyTerminalGames
 
       def used_positions
         state.map { |s| s.last }
+      end
+
+      def collision_with_self?
+        used_positions.uniq.size != used_positions.size
       end
     end
   end
