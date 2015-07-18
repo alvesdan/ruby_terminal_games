@@ -37,6 +37,8 @@ module RubyTerminalGames
 
       def allowed_key?(key)
         ('a'..'z').to_a.include?(key.downcase)
+      rescue
+        false
       end
 
       def guess(key)
