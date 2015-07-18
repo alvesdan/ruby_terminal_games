@@ -3,7 +3,7 @@ require_relative 'word'
 
 module RubyTerminalGames
   module Hangman
-    class Game
+    class Game < RubyTerminalGames::Game
       attr_reader :word, :guess_total, :board, :input_index,
         :wrong_guesses
 
