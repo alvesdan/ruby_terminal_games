@@ -8,6 +8,8 @@ module RubyTerminalGames
       end
 
       def guess!(key)
+        return true if won?
+        
         found = false
         letters.each_with_index do |letter, index|
           next unless letter == key
@@ -15,6 +17,10 @@ module RubyTerminalGames
           @guess_letters[index] = letter
         end
         found
+      end
+
+      def won?
+        letters.size == guess_letters.compact.size
       end
 
       private

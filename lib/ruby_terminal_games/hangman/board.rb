@@ -17,6 +17,7 @@ module RubyTerminalGames
       def print_placeholders(word)
         word.guess_letters.each_with_index do |letter, index|
           output = letter ? letter.upcase : ''
+          output = output.green if word.won?
           placeholder = '_'
           write(output, row: 4, col: (index * 2) + 4)
           write(placeholder, row: 5, col: (index * 2) + 4)
