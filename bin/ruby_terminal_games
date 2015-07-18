@@ -16,6 +16,7 @@ if command =~ /list/
   puts <<-EOT
 Games:
 - Snake (play snake)
+- Hangman (play hangman)
   EOT
   exit
 end
