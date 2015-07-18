@@ -25,7 +25,7 @@ module RubyTerminalGames
       end
 
       def print_wrong_guesses(guesses)
-        write("WRONG GUESSES: #{guesses.join(', ')}", row: height - 1, col: 4)
+        write(guesses.join(', '), row: height - 2, col: 4)
       end
 
       def print_exit_instruction
