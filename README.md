@@ -3,7 +3,7 @@
 The idea of the gem is provide some basic games  to play on Terminal. Currently the gem has the games below:
 
 - [x] Snake
-- [ ] Hangman
+- [x] Hangman
 - Any suggestions?
 
 ## Installation
