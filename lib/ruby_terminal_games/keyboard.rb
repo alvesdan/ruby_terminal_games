@@ -2,7 +2,7 @@ module RubyTerminalGames
   class Keyboard
     attr_reader :thread
 
-    def capture(detect_direction: false, &block)
+    def self.capture(detect_direction: false, &block)
       Curses.noecho
       Curses.stdscr.keypad(true)
       Curses.curs_set(0)
@@ -20,7 +20,7 @@ module RubyTerminalGames
       end
     end
 
-    def stop_capture
+    def self.stop_capture
       Thread.kill(@capture_thread)
       Curses.echo
       Curses.stdscr.keypad(false)
@@ -31,7 +31,7 @@ module RubyTerminalGames
 
     private
 
-    def direction(key)
+    def self.direction(key)
       case key
       when Curses::KEY_UP; then UP;
       when Curses::KEY_DOWN; then DOWN;

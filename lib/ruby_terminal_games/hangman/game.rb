@@ -16,14 +16,14 @@ module RubyTerminalGames
       def play!
         @playing = true
 
-        KEYBOARD.capture(detect_direction: true) do |key|
+        Keyboard.capture(detect_direction: true) do |key|
           begin
             @playing = false if key =~ /Q/
             next unless allowed_key?(key)
             guess(key)
           rescue
             @playing = false
-            KEYBOARD.stop_capture!
+            Keyboard.stop_capture!
           end
         end
 

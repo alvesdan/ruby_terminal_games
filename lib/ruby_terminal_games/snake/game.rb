@@ -30,7 +30,7 @@ module RubyTerminalGames
       def play!
         @playing = true
 
-        KEYBOARD.capture(detect_direction: true) do |key|
+        Keyboard.capture(detect_direction: true) do |key|
           exit if key =~ /q/i
           next unless direction_allowed?(key)
           @direction = key
