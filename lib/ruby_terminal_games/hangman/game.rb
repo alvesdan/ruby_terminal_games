@@ -29,7 +29,7 @@ module RubyTerminalGames
 
         while @playing
           board.print_world!(self)
-          sleep(0.05)
+          game_interval!
         end
       end
 
@@ -43,6 +43,10 @@ module RubyTerminalGames
         return if word.guess!(key.strip.downcase)
         @wrong_guesses << key.upcase
         @wrong_guesses.uniq!
+      end
+
+      def game_interval!
+        sleep(0.05)
       end
     end
   end
