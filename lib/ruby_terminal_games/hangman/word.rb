@@ -9,7 +9,7 @@ module RubyTerminalGames
 
       def guess!(key)
         return true if won?
-        
+
         found = false
         letters.each_with_index do |letter, index|
           next unless letter == key
@@ -26,7 +26,10 @@ module RubyTerminalGames
       private
 
       def random_word
-        File.readlines('./lib/ruby_terminal_games/hangman/words.txt')
+        path = File.expand_path(
+          File.join(File.dirname(__FILE__), "words.txt"))
+
+        File.readlines(path)
           .map { |line|
           line.strip.downcase
         }.reject { |w| w.empty? }.sample
