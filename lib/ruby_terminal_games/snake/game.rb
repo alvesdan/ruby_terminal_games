@@ -11,16 +11,8 @@ module RubyTerminalGames
       def initialize
         @direction = RIGHT
         @board = Board.new
-
-        @apple = Apple.new(
-          width: @board.width,
-          height: @board.height
-        )
-
-        @snake = Snake.new(
-          width: @board.width,
-          height: @board.height
-        )
+        @apple = Apple.new(@board.width, @board.height)
+        @snake = Snake.new(@board.width, @board.height)
 
         @points = 0
         @speed = 0
@@ -30,7 +22,7 @@ module RubyTerminalGames
       def play!
         @playing = true
 
-        Keyboard.capture(detect_direction: true) do |key|
+        Keyboard.capture(true) do |key|
           exit if key =~ /q/i
           next unless direction_allowed?(key)
           @direction = key

@@ -1,7 +1,7 @@
 module RubyTerminalGames
   module Hangman
     class Board < RubyTerminalGames::Board
-      def initialize(width: nil, height: nil)
+      def initialize(width = nil, height = nil)
         super
         @height = 10
       end
@@ -19,19 +19,19 @@ module RubyTerminalGames
           output = letter ? letter.upcase : ''
           output = output.green if word.won?
           placeholder = '_'
-          write(output, row: 4, col: (index * 2) + 4)
-          write(placeholder, row: 5, col: (index * 2) + 4)
+          write(output, 4, (index * 2) + 4)
+          write(placeholder, 5, (index * 2) + 4)
         end
       end
 
       def print_wrong_guesses(guesses)
-        write(guesses.join(', '), row: height - 2, col: 4)
+        write(guesses.join(', '), height - 2, 4)
       end
 
       def print_exit_instruction
         draw_border!
         text = "Press SHIFT+Q to Exit"
-        write(text, row: height + 1, col: cols - text.length)
+        write(text, height + 1, cols - text.length)
       end
     end
   end

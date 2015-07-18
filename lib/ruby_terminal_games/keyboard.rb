@@ -2,7 +2,7 @@ module RubyTerminalGames
   class Keyboard
     attr_reader :thread
 
-    def self.capture(detect_direction: false, &block)
+    def self.capture(detect_direction = false, &block)
       Curses.noecho
       Curses.stdscr.keypad(true)
       Curses.curs_set(0)

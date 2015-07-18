@@ -16,7 +16,7 @@ module RubyTerminalGames
       def play!
         @playing = true
 
-        Keyboard.capture(detect_direction: true) do |key|
+        Keyboard.capture(true) do |key|
           begin
             @playing = false if key =~ /Q/
             next unless allowed_key?(key)

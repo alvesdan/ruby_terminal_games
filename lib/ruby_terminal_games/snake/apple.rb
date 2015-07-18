@@ -2,7 +2,7 @@ module RubyTerminalGames
   module Snake
     class Apple
       attr_reader :position, :width, :height
-      def initialize(width:, height:)
+      def initialize(width, height)
         @width = width
         @height = height
         @position = [height - 4, width - 4]

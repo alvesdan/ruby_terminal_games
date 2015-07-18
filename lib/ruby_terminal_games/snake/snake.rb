@@ -2,7 +2,7 @@ module RubyTerminalGames
   module Snake
     class Snake
       attr_reader :state, :width, :height
-      def initialize(width:, height:)
+      def initialize(width, height)
         @width = width
         @height = height
         @state = [

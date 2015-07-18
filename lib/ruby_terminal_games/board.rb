@@ -2,7 +2,7 @@
 module RubyTerminalGames
   class Board
     attr_accessor :rows, :cols, :width, :height
-    def initialize(width: nil, height: nil)
+    def initialize(width = nil, height = nil)
       @rows, @cols = STDOUT.winsize
       @width = width || @cols
       @height = height || @rows
@@ -13,7 +13,7 @@ module RubyTerminalGames
       rows.times { write(" " * cols) }
     end
 
-    def write(text, row: nil, col: nil)
+    def write(text, row = nil, col = nil)
       move_cursor(row, col) if (row && col)
       STDOUT.write(text)
     end
@@ -25,21 +25,21 @@ module RubyTerminalGames
     def draw_border!
       # Left and right border
       (0..height).each do |i|
-        write("│", row: i, col: 0)
-        write("│", row: i, col: width)
+        write("│", i, 0)
+        write("│", i, width)
       end
 
       # Top and bottom border
       (0..width).each do |i|
-        write("─", row: 0, col: i)
-        write("─", row: height, col: i)
+        write("─", 0, i)
+        write("─", height, i)
       end
 
       # Corners
-      write("┌", row: 0, col: 0)
-      write("┘", row: height, col: width)
-      write("┐", row: 0, col: width)
-      write("└", row: height, col: 0)
+      write("┌", 0, 0)
+      write("┘", height, width)
+      write("┐", 0, width)
+      write("└", height, 0)
     end
   end
 end
