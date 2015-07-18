@@ -48,7 +48,7 @@ module RubyTerminalGames
       end
 
       def game_interval!
-        sleep(0.05)
+        sleep(0.1)
       end
     end
   end
