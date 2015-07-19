@@ -32,7 +32,7 @@ module RubyTerminalGames
 
       def draw_apple!(apple)
         row, col = apple.position
-        write("❤", row: row, col: col)
+        write("❤".red, row: row, col: col)
       end
 
       def draw_snake!(snake_state, direction)
