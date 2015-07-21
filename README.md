@@ -4,7 +4,7 @@ The idea of the gem is provide some basic games  to play on Terminal. Currently 
 
 - [x] Snake
 - [x] Hangman
-- [ ] Sudoku
+- [x] Sudoku
 - Any suggestions?
 
 ## Installation
