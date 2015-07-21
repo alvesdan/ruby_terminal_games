@@ -66,7 +66,7 @@ module RubyTerminalGames
       end
 
       def allowed_input?(key)
-        ('1'..'9').include?(key)
+        ('0'..'9').include?(key)
       end
 
       def add_user_input(input)

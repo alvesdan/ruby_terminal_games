@@ -9,6 +9,7 @@ module RubyTerminalGames
 
       def add_input(input, user_input_index)
         return if locked_position?(user_input_index)
+        input = nil if input.zero?
         previous = state[user_input_index]
         @state[user_input_index] = input
         return true if valid?
