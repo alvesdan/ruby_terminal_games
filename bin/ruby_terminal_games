@@ -17,6 +17,7 @@ if command =~ /list/
 Games:
 - Snake (play snake)
 - Hangman (play hangman)
+- Sudoku (play sudoku)
   EOT
   exit
 end
