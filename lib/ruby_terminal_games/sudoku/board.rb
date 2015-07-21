@@ -6,6 +6,7 @@ module RubyTerminalGames
         print_top_border!
         print_middle_borders!
         print_bottom_border!
+        print_instructions!
 
         user_inputs = game.user_inputs
         user_input_index = game.user_input_index
@@ -48,6 +49,22 @@ module RubyTerminalGames
         ]
       end
 
+      def middle_rows
+        [
+          2, 3, 4, 5, 6,
+          8, 9, 10, 11, 12,
+          14, 15, 16, 17, 18
+        ]
+      end
+
+      def middle_columns
+        [
+          2, 3, 4,
+          6, 7, 8,
+          10, 11, 12
+        ]
+      end
+
       def print_top_border!
         write("┌", row: 1, col: 1)
         write("┬", row: 1, col: 7)
@@ -64,6 +81,16 @@ module RubyTerminalGames
         write("┼", row: 9, col: 7)
         write("┼", row: 9, col: 13)
         write("┤", row: 9, col: 19)
+
+        middle_rows.each do |col|
+          write("┈", row: 5, col: col)
+          write("┈", row: 9, col: col)
+        end
+
+        middle_columns.each do |row|
+          write("┊", row: row, col: 7)
+          write("┊", row: row, col: 13)
+        end
       end
 
       def print_bottom_border!
@@ -71,6 +98,19 @@ module RubyTerminalGames
         write("┴", row: 13, col: 7)
         write("┴", row: 13, col: 13)
         write("┘", row: 13, col: 19)
+      end
+
+      def print_bottom_line!
+        write("─"*width, row: 14, col: 1)
+      end
+
+      def print_instructions!
+        print_bottom_line!
+        text = 'Use 0 to clear input'
+        write(text, row: 15, col: 1)
+
+        exit_text = 'Press Q to exit'
+        write(exit_text, row: 15, col: width - exit_text.length)
       end
     end
   end
