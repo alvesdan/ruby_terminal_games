@@ -31,6 +31,8 @@ when /snake/
   RubyTerminalGames::Snake::Game.new
 when /hangman/
   RubyTerminalGames::Hangman::Game.new
+when /sudoku/
+  RubyTerminalGames::Sudoku::Game.new
 end
 
 if game
