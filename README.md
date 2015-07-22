@@ -2,10 +2,11 @@
 
 The idea of the gem is provide some basic games  to play on Terminal. Currently the gem has the games below:
 
-- [x] Snake
-- [x] Hangman
-- [x] Sudoku
-- Any suggestions?
+| Snake | Hangman | Sudoku |
+| ------------- | ------------- | ------ |
+| ![Snake](https://raw.githubusercontent.com/alvesdan/ruby_terminal_games/master/images/Snake.png) | ![Hangman](https://raw.githubusercontent.com/alvesdan/ruby_terminal_games/master/images/Hangman.png)  | ![Sudoku](https://raw.githubusercontent.com/alvesdan/ruby_terminal_games/master/images/Sudoku.png) |
+
+Any game suggestions?
 
 ## Installation
 
