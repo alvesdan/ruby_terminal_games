@@ -1,6 +1,13 @@
 module RubyTerminalGames
   module Snake
     class Board < RubyTerminalGames::Board
+      APPLE = "❤".freeze
+      SNAKE_BODY = "◆".freeze
+      SNAKE_HEAD_RIGHT = "⊃".freeze
+      SNAKE_HEAD_LEFT = "⊂".freeze
+      SNAKE_HEAD_UP = "∩".freeze
+      SNAKE_HEAD_DOWN = "∪".freeze
+
       def initialize(width: nil, height: nil)
         super
         @width = cols
@@ -20,7 +27,7 @@ module RubyTerminalGames
 
       def draw_stats!(speed, points)
         stats = [
-          "SPEED:", speed + 1, "POINTS:", points
+          "Speed:", speed + 1, "Points:", points
         ].join(' ')
         write(stats, row: rows, col: 0)
       end
@@ -32,7 +39,7 @@ module RubyTerminalGames
 
       def draw_apple!(apple)
         row, col = apple.position
-        write("❤".red, row: row, col: col)
+        write(APPLE.red, row: row, col: col)
       end
 
       def draw_snake!(snake_state, direction)
@@ -45,16 +52,16 @@ module RubyTerminalGames
 
       def snake_head(position)
         case position
-        when UP then '∩'
-        when RIGHT then '⊃'
-        when DOWN then '∪'
-        when LEFT then '⊂'
+        when UP then SNAKE_HEAD_UP
+        when RIGHT then SNAKE_HEAD_RIGHT
+        when DOWN then SNAKE_HEAD_DOWN
+        when LEFT then SNAKE_HEAD_LEFT
         end
       end
 
       def draw_snake_body(direction, position, head: false)
         row, col = position
-        text = head ? snake_head(direction) : '◆'
+        text = head ? snake_head(direction) : SNAKE_BODY
         write(text, row: row, col: col)
       end
 

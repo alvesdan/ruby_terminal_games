@@ -66,42 +66,42 @@ module RubyTerminalGames
       end
 
       def print_top_border!
-        write("┌", row: 1, col: 1)
-        write("┬", row: 1, col: 7)
-        write("┬", row: 1, col: 13)
-        write("┐", row: 1, col: 19)
+        write(LEFT_TOP_CORNER, row: 1, col: 1)
+        write(TOP_SEPARATOR, row: 1, col: 7)
+        write(TOP_SEPARATOR, row: 1, col: 13)
+        write(RIGHT_TOP_CORNER, row: 1, col: 19)
       end
 
       def print_middle_borders!
-        write("├", row: 5, col: 1)
-        write("┼", row: 5, col: 7)
-        write("┼", row: 5, col: 13)
-        write("┤", row: 5, col: 19)
-        write("├", row: 9, col: 1)
-        write("┼", row: 9, col: 7)
-        write("┼", row: 9, col: 13)
-        write("┤", row: 9, col: 19)
+        write(LEFT_SEPARATOR, row: 5, col: 1)
+        write(CENTER_SEPARATOR, row: 5, col: 7)
+        write(CENTER_SEPARATOR, row: 5, col: 13)
+        write(RIGHT_SEPARATOR, row: 5, col: 19)
+        write(LEFT_SEPARATOR, row: 9, col: 1)
+        write(CENTER_SEPARATOR, row: 9, col: 7)
+        write(CENTER_SEPARATOR, row: 9, col: 13)
+        write(RIGHT_SEPARATOR, row: 9, col: 19)
 
         middle_rows.each do |col|
-          write("┈", row: 5, col: col)
-          write("┈", row: 9, col: col)
+          write(HORIZONTAL_DASHED_LINE, row: 5, col: col)
+          write(HORIZONTAL_DASHED_LINE, row: 9, col: col)
         end
 
         middle_columns.each do |row|
-          write("┊", row: row, col: 7)
-          write("┊", row: row, col: 13)
+          write(VERTICAL_DASHED_LINE, row: row, col: 7)
+          write(VERTICAL_DASHED_LINE, row: row, col: 13)
         end
       end
 
       def print_bottom_border!
-        write("└", row: 13, col: 1)
-        write("┴", row: 13, col: 7)
-        write("┴", row: 13, col: 13)
-        write("┘", row: 13, col: 19)
+        write(LEFT_BOTTOM_CORNER, row: 13, col: 1)
+        write(BOTTOM_SEPARATOR, row: 13, col: 7)
+        write(BOTTOM_SEPARATOR, row: 13, col: 13)
+        write(RIGHT_BOTTOM_CORNER, row: 13, col: 19)
       end
 
       def print_bottom_line!
-        write("─"*width, row: 14, col: 1)
+        write(HORIZONTAL_LINE * width, row: 14, col: 1)
       end
 
       def print_instructions!

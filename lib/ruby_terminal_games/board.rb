@@ -1,6 +1,20 @@
-
 module RubyTerminalGames
   class Board
+    EMPTY_CHAR = " ".freeze
+    HORIZONTAL_LINE = "─".freeze
+    VERTICAL_LINE = "│".freeze
+    HORIZONTAL_DASHED_LINE = "┄".freeze
+    VERTICAL_DASHED_LINE = "┆".freeze
+    LEFT_TOP_CORNER = "┌".freeze
+    RIGHT_TOP_CORNER = "┐".freeze
+    LEFT_BOTTOM_CORNER = "└".freeze
+    RIGHT_BOTTOM_CORNER = "┘".freeze
+    CENTER_SEPARATOR = "┼".freeze
+    LEFT_SEPARATOR = "├".freeze
+    RIGHT_SEPARATOR = "┤".freeze
+    BOTTOM_SEPARATOR = "┴".freeze
+    TOP_SEPARATOR = "┬".freeze
+
     attr_accessor :rows, :cols, :width, :height
     def initialize(width: nil, height: nil)
       @rows, @cols = STDOUT.winsize
@@ -10,7 +24,7 @@ module RubyTerminalGames
 
     def clear!
       move_cursor(1, 1)
-      rows.times { write(" " * cols) }
+      rows.times { write(EMPTY_CHAR * cols) }
     end
 
     def write(text, row: nil, col: nil)
@@ -23,23 +37,20 @@ module RubyTerminalGames
     end
 
     def draw_border!
-      # Left and right border
       (0..height).each do |i|
-        write("│", row: i, col: 0)
-        write("│", row: i, col: width)
+        write(VERTICAL_LINE, row: i, col: 0)
+        write(VERTICAL_LINE, row: i, col: width)
       end
 
-      # Top and bottom border
       (0..width).each do |i|
-        write("─", row: 0, col: i)
-        write("─", row: height, col: i)
+        write(HORIZONTAL_LINE, row: 0, col: i)
+        write(HORIZONTAL_LINE, row: height, col: i)
       end
 
-      # Corners
-      write("┌", row: 0, col: 0)
-      write("┘", row: height, col: width)
-      write("┐", row: 0, col: width)
-      write("└", row: height, col: 0)
+      write(LEFT_TOP_CORNER, row: 0, col: 0)
+      write(RIGHT_BOTTOM_CORNER, row: height, col: width)
+      write(RIGHT_TOP_CORNER, row: 0, col: width)
+      write(LEFT_BOTTOM_CORNER, row: height, col: 0)
     end
   end
 end
